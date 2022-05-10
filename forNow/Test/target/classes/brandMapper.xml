@@ -6,7 +6,7 @@
 
 
 <mapper namespace="wangtichang">
-    <select id="selectAll" resultType="com.tcherw.pojo.Brand">
+    <select id="selectAll" resultType="comm.tcherw.pojo.Brand">
         select * from tb_brand;
      </select>
 </mapper>

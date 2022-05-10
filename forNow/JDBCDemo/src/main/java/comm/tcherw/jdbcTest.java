@@ -1,6 +1,7 @@
 package comm.tcherw;
 
 //import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 import comm.tcherw.pojo.Brand;
 
 import javax.sql.DataSource;
@@ -15,13 +16,13 @@ public class jdbcTest {
     public static void main(String[] args) throws Exception {
 
 
-        //注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        //获取连接
-        String url = "jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8";
-        String username = "root";
-        String password = "xiaogui";
-        Connection connection = DriverManager.getConnection(url, username, password);
+//        //注册驱动
+//        Class.forName("com.mysql.jdbc.Driver");
+//        //获取连接
+//        String url = "jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8";
+//        String username = "root";
+//        String password = "xiaogui";
+//        Connection connection = DriverManager.getConnection(url, username, password);
         //定义sql
         String sql = "select * from tb_brand";
 
@@ -31,22 +32,22 @@ public class jdbcTest {
 //        //执行SQL
 //        ResultSet rs = statement.executeQuery(sql);
 
-        //solution2 使用PrepareStatement防止sql注入、预编译
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        ResultSet rs = preparedStatement.executeQuery();
-
-
-//        //solution3 使用druid连接池 ----一直没有解决“程序包com.alibaba.druid.pool不存在”的问题
-//        //加载配置文件
-//        Properties properties = new Properties();
-//        properties.load(new FileInputStream("druid.properties"));
-//        //获取连接池对象
-//        DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
-//        //获取数据库连接
-//        Connection connection1 = dataSource.getConnection();
-//
-//        PreparedStatement preparedStatement = connection1.prepareStatement(sql);
+//        //solution2 使用PrepareStatement防止sql注入、预编译
+//        PreparedStatement preparedStatement = connection.prepareStatement(sql);
 //        ResultSet rs = preparedStatement.executeQuery();
+
+
+        //solution3 使用druid连接池 ----一直没有解决“程序包com.alibaba.druid.pool不存在”的问题
+        //加载配置文件
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("JDBCDemo/src/main/java/comm/tcherw/druid.properties"));
+        //获取连接池对象
+        DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
+        //获取数据库连接
+        Connection connection1 = dataSource.getConnection();
+
+        PreparedStatement preparedStatement = connection1.prepareStatement(sql);
+        ResultSet rs = preparedStatement.executeQuery();
 
         ArrayList<Brand> brands = new ArrayList<Brand>();
 
@@ -70,6 +71,7 @@ public class jdbcTest {
 
 //        statement.close();
         preparedStatement.close();
-        connection.close();
+//        connection.close();
+        connection1.close();
     }
 }
