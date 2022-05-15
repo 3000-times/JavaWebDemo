@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+JS案例
+1.当输入框失去焦点时，验证输入内容是否符合要求
+2.当点击注册按钮时，判断所有输入框的内容是否都符合要求，如果不符合则组织表单提交
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../css/test4.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="reg">
+            <form id="reg-form" action="#" method="post">
+                <br>
+                <label for="username">用户名：</label>
+                <input type="text" name="username" id="username">
+                <br>
+                <span id="username_err" class="err_msg" style="display: none">用户名格式有误</span>
+
+                <br>
+                <label for="password">密&nbsp;&nbsp;&nbsp;码：</label>
+                <input type="password" name="password" id="password">
+                <br>
+                <span id="password_err" class="err_msg" style="display: none">密码格式有误</span>
+
+                <br>
+                <label for="phoneNum">手机号：</label>
+                <input type="text" name="phoneNum" id="phoneNum">
+                <br>
+                <span id="phoneNum_err" class="err_msg" style="display: none">手机号格式有误</span>
+
+                <br>
+                <input type="submit" value="注册">
+                <br>
+                <span id="submit_err" class="err_msg" style="display: none">表单错误</span>
+            </form>
+        </div>
+        <div class="lamp">
+            <img src="../Image/lamp.jpg" id="lamp">
+        </div>
+    </div>
+
+<script src="../JS/test4.js"></script>
+</body>
+</html>

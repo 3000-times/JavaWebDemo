@@ -1,0 +1,31 @@
+.container{
+    width: 1000px;
+    height: 880px;
+    border: 1px solid red;
+    margin: 0px auto;
+    background-color: rgb(233, 213, 213);
+}
+
+.reg{
+    width: 500px;
+    height: 200px;
+    border: 1px solid red;
+    margin: 10px auto;
+    background-color: pink;
+
+    text-align: center;
+}
+
+.lamp{
+    /*width: 300px;*/
+    /*height: 250px;*/
+    /*margin: 10px auto;*/
+
+    text-align: center;
+}
+
+.err_msg{
+    color: red;
+    font-size: small;
+    font-style: oblique;
+}
